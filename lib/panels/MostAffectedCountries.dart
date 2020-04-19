@@ -1,4 +1,5 @@
 import 'package:covid19/Constants.dart';
+import 'package:covid19/NumberFormatter.dart';
 import 'package:covid19/UIHelper.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,7 @@ class MostAffectedPanel extends StatelessWidget {
                           ),
                           smallHorizontalGap,
                           Text(
-                            'Deaths: ${countryData[index]['deaths'].toString()}',
+                            'Deaths: ${numberFormatter(countryData[index]['deaths'].toString())}',
                             style: kMostAffectedCountriesDeathsTextStyle,
                           )
                         ],

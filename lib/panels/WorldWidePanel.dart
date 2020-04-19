@@ -1,3 +1,4 @@
+import 'package:covid19/NumberFormatter.dart';
 import 'package:covid19/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -18,25 +19,33 @@ class WorldWidePanel extends StatelessWidget {
             title: 'Confirmed',
             panelColor: confirmedPanelColor,
             textColor: confirmedPanelTextColor,
-            count: worldData['cases'].toString(),
+            count: numberFormatter(
+              worldData['cases'].toString(),
+            ),
           ),
           StatusPanel(
             title: 'Active',
             panelColor: activePanelColor,
             textColor: activePanelTextColor,
-            count: worldData['active'].toString(),
+            count: numberFormatter(
+              worldData['active'].toString(),
+            ),
           ),
           StatusPanel(
             title: 'Recovered',
             panelColor: recoveredPanelColor,
             textColor: recoveredPanelTextColor,
-            count: worldData['recovered'].toString(),
+            count: numberFormatter(
+              worldData['recovered'].toString(),
+            ),
           ),
           StatusPanel(
             title: 'Deaths',
             panelColor: deathsPanelColor,
             textColor: deathsPanelTextColor,
-            count: worldData['deaths'].toString(),
+            count: numberFormatter(
+              worldData['deaths'].toString(),
+            ),
           ),
         ],
       ),

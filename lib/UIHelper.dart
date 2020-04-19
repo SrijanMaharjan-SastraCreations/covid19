@@ -10,12 +10,17 @@ const SizedBox largeHorizontalGap = SizedBox(
   width: 56,
 );
 
-const SizedBox smallVeritcalGap = SizedBox(
+const SizedBox smallVerticalGap = SizedBox(
   height: 8,
 );
-const SizedBox mediumVeritcalGap = SizedBox(
+const SizedBox mediumVerticalGap = SizedBox(
   height: 16,
 );
-const SizedBox largeVeritcalGap = SizedBox(
+const SizedBox largeVerticalGap = SizedBox(
   height: 32,
+);
+const Divider divider = Divider(
+  indent: 50,
+  endIndent: 50,
+  color: Colors.black,
 );

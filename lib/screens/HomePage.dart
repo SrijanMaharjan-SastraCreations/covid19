@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:covid19/Constants.dart';
+import 'package:covid19/UIHelper.dart';
 import 'package:covid19/colors.dart';
 import 'package:covid19/components/DataSource.dart';
 import 'package:covid19/panels/InfoPanel.dart';
@@ -108,22 +109,6 @@ class _HomePageState extends State<HomePage> {
                   : WorldWidePanel(
                       worldData: worldDataResponse,
                     ),
-
-//              PieChart(
-//                dataMap: {
-//                  'Confirmed': worldDataResponse['cases'].toDouble(),
-//                  'Active': worldDataResponse['active'].toDouble(),
-//                  'Recovered': worldDataResponse['recovered'].toDouble(),
-//                  'Deaths': worldDataResponse['deaths'].toDouble(),
-//                },
-//                colorList: [
-//                  Colors.red,
-//                  Colors.blue[100],
-//                  Colors.green,
-//                  Colors.grey[400],
-//                ],
-//              ),
-
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
@@ -137,6 +122,7 @@ class _HomePageState extends State<HomePage> {
                   : MostAffectedPanel(
                       countryData: countryDataResponse,
                     ),
+              mediumVerticalGap,
               InfoPanel(),
             ],
           ),

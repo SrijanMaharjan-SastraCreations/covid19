@@ -46,3 +46,13 @@ const TextStyle kCountryStatsOtherStatsTextStyle = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.bold,
 );
+
+const TextStyle kIndividualCountryLabelText = TextStyle(
+  fontSize: 24,
+  fontWeight: FontWeight.bold,
+);
+
+const TextStyle kIndividualCountryOtherStatTextStyle = TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+);
