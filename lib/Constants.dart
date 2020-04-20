@@ -56,3 +56,15 @@ const TextStyle kIndividualCountryOtherStatTextStyle = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.bold,
 );
+
+const TextStyle kSymptomNameTextStyle = TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+);
+
+const TextStyle kSymptomDescriptionTextStyle = TextStyle(
+  fontSize: 12,
+);
+
+const TextStyle kLoadingTextStyle =
+    TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.green);

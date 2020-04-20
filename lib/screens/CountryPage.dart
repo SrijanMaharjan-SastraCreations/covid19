@@ -47,7 +47,7 @@ class _CountryPageState extends State<CountryPage> {
       ),
       body: countryDataResponse == null
           ? Center(
-              child: CircularProgressIndicator(),
+              child: CupertinoActivityIndicator(),
             )
           : ListView.builder(
               itemBuilder: (context, index) {
@@ -65,19 +65,12 @@ class _CountryPageState extends State<CountryPage> {
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey[100],
-                          blurRadius: 8,
-                          offset: Offset(0, 10),
-                        )
-                      ],
+                      boxShadow: [],
                     ),
                     child: Row(
                       children: [
                         Expanded(
-                          flex: 6,
+                          flex: 7,
                           child: Container(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,

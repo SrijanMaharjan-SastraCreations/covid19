@@ -10,6 +10,9 @@ class Search extends SearchDelegate {
   Search({this.countryList});
 
   @override
+  ThemeData appBarTheme(BuildContext context) => Theme.of(context);
+
+  @override
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
@@ -48,86 +51,77 @@ class Search extends SearchDelegate {
                 element['country'].toString().toLowerCase().startsWith(query))
             .toList();
     return ListView.builder(
-        itemCount: suggestionList.length,
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => IndividualCountry(
-                    individualCountryDetail: suggestionList[index],
+      itemCount: suggestionList.length,
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => IndividualCountry(
+                  individualCountryDetail: suggestionList[index],
+                ),
+              ),
+            );
+          },
+          child: Container(
+            margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 7,
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          suggestionList[index]['country'],
+                          style: kCountryStatsCountryNameTextStyle,
+                        ),
+                        mediumVerticalGap,
+                        Image.network(
+                          suggestionList[index]['countryInfo']['flag'],
+                        ),
+                        smallVerticalGap
+                      ],
+                    ),
                   ),
                 ),
-              );
-            },
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey[100],
-                    blurRadius: 8,
-                    offset: Offset(0, 10),
-                  )
-                ],
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 6,
+                largeHorizontalGap,
+                Expanded(
+                    flex: 8,
                     child: Container(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          smallVerticalGap,
                           Text(
-                            suggestionList[index]['country'],
-                            style: kCountryStatsCountryNameTextStyle,
+                            'Confirmed: ${numberFormatter(suggestionList[index]['cases'].toString())}',
+                            style: kCountryStatsConfirmedTextStyle,
                           ),
-                          mediumVerticalGap,
-                          Image.network(
-                            suggestionList[index]['countryInfo']['flag'],
+                          Text(
+                            'Active: ${numberFormatter(suggestionList[index]['active'].toString())}',
+                            style: kCountryStatsActiveTextStyle,
                           ),
-                          smallVerticalGap
+                          Text(
+                            'Recovered: ${numberFormatter(suggestionList[index]['recovered'].toString())}',
+                            style: kCountryStatsRecoveredTextStyle,
+                          ),
+                          Text(
+                            'Deaths: ${numberFormatter(suggestionList[index]['deaths'].toString())}',
+                            style: kCountryStatsDeathsTextStyle,
+                          ),
+                          smallVerticalGap,
                         ],
                       ),
-                    ),
-                  ),
-                  largeHorizontalGap,
-                  Expanded(
-                      flex: 8,
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            smallVerticalGap,
-                            Text(
-                              'Confirmed: ${numberFormatter(suggestionList[index]['cases'].toString())}',
-                              style: kCountryStatsConfirmedTextStyle,
-                            ),
-                            Text(
-                              'Active: ${numberFormatter(suggestionList[index]['active'].toString())}',
-                              style: kCountryStatsActiveTextStyle,
-                            ),
-                            Text(
-                              'Recovered: ${numberFormatter(suggestionList[index]['recovered'].toString())}',
-                              style: kCountryStatsRecoveredTextStyle,
-                            ),
-                            Text(
-                              'Deaths: ${numberFormatter(suggestionList[index]['deaths'].toString())}',
-                              style: kCountryStatsDeathsTextStyle,
-                            ),
-                            smallVerticalGap,
-                          ],
-                        ),
-                      ))
-                ],
-              ),
+                    ))
+              ],
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

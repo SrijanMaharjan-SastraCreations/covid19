@@ -2,6 +2,7 @@ import 'package:covid19/Constants.dart';
 import 'package:covid19/NumberFormatter.dart';
 import 'package:covid19/UIHelper.dart';
 import 'package:covid19/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 
@@ -18,7 +19,7 @@ class IndividualCountry extends StatelessWidget {
       ),
       body: individualCountryDetail == null
           ? Center(
-              child: CircularProgressIndicator(),
+              child: CupertinoActivityIndicator(),
             )
           : SingleChildScrollView(
               child: Column(
@@ -28,6 +29,10 @@ class IndividualCountry extends StatelessWidget {
                     individualCountryDetail['countryInfo']['flag'],
                     height: 124,
                     width: 132,
+                  ),
+                  Text(
+                    individualCountryDetail['country'],
+                    style: kCountryStatsCountryNameTextStyle,
                   ),
                   Align(
                     alignment: Alignment.bottomLeft,

@@ -32,6 +32,7 @@ dependencies:
   shared_preferences: ^0.5.6+3
   http:
   pie_chart: ^3.1.1
+  splashscreen: ^1.2.0
 
 dev_dependencies:
   flutter_test:
@@ -49,9 +50,16 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/icon/fever.png
+    - assets/icon/cough.png
+    - assets/icon/diarrhoea.png
+    - assets/icon/nasalcongestion.png
+    - assets/icon/pain.png
+    - assets/icon/runnynose.png
+    - assets/icon/sorethroat.png
+    - assets/icon/tiredness.png
+    - assets/splash.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
